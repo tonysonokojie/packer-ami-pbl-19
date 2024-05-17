@@ -3,7 +3,9 @@ variable "region" {
   default = "us-east-1"
 }
 
-locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
+locals { 
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "") 
+}
 
 
 # source blocks are generated from your builders; a source can be referenced in
