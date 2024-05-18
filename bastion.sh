@@ -2,7 +2,7 @@
 
 # user data for bastion
 sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm 
 sudo yum install -y mysql-server wget vim telnet htop git python3 net-tools zip
 sudo systemctl start chronyd
 sudo systemctl enable chronyd
@@ -10,9 +10,9 @@ sudo systemctl enable chronyd
 
 #installing java 11
 sudo yum install -y java-11-openjdk-devel
-sudo echo "export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))" >> ~/.bash_profile
-sudo echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.bash_profile
-sudo echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar" >> ~/.bash_profile
+sudo bash -c 'echo "export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))" >> ~/.bash_profile'
+sudo sh -c 'echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> ~/.bash_profile'
+sudo sh -c 'echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar" >> ~/.bash_profile'
 source ~/.bash_profile
 
 # install botocore, ansible and awscli
@@ -32,4 +32,3 @@ ansible-galaxy collection install amazon.aws
 ansible-galaxy collection install community.general
 ansible-galaxy collection install community.mysql
 ansible-galaxy collection install community.postgresql
-

@@ -23,10 +23,11 @@ sudo yum install -y  ./build/amazon-efs-utils*rpm
 
 #installing java 11
 sudo yum install -y java-11-openjdk-devel
-sudo echo "export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))" >> ~/.bash_profile
-sudo echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.bash_profile
-sudo echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar" >> ~/.bash_profile
+sudo bash -c 'echo "export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))" >> ~/.bash_profile'
+sudo sh -c 'echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> ~/.bash_profile'
+sudo sh -c 'echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar" >> ~/.bash_profile'
 source ~/.bash_profile
+
 
 
 #installing self signed certificate for apache

@@ -15,7 +15,7 @@ source "amazon-ebs" "terraform-ubuntu-prj-19" {
   region        = var.region
   source_ami_filter {
     filters = {
-      name                = "ubuntu-pro-server/images/hvm-ssd/ubuntu-jammy-22.04-amd64-pro-server-20231207"
+      name                = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20240423"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
